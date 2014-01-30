@@ -3,6 +3,8 @@ gmail_mbox_2_importexporttools_mbox
 
 A script to convert gmail mbox format to "importexporttools" mbox format. Useful for importing emails from gmail accounts with Thunderbird.
 
+More detailed explanations:
+
 Google allows exporting all emails from gmails, thanks to Google Takeout. The archive is composed of mbox files and subdirectories (if you use labels in your gmail account).
 
 
