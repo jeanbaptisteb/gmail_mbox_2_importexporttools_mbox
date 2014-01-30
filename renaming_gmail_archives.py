@@ -6,19 +6,19 @@ Created on Thu Jan 30 12:12:48 2014
 """
 
 import os
-basedir = 'path//' #indiquer ici le chemin du dossier à traiter.
+basedir = 'path//' #path of the folder to process.
 
 
-for root, dirs, files in os.walk(basedir, topdown=False): #topdown=False sert à traiter les sous-dossiers -> obligatoire
+for root, dirs, files in os.walk(basedir, topdown=False): #topdown=False -> to process subfolders : mandatory
     
-    #ajouter une extension .sbd à tous les répertoires et sous-répertoires. 
+    #Adding a .sbd extension to all folders and subfolders
     for name in dirs:
         dir = os.path.join(root,name)
         os.rename(dir,
                   dir+'.sbd')
         
         
-    #Supprimer l'extension .mbox de tous les fichiers
+    #Removing the .mbox extension from all files
     for fileName in files:
         file_ext = os.path.splitext(fileName)
         if file_ext[1] == '.mbox':
@@ -27,7 +27,7 @@ for root, dirs, files in os.walk(basedir, topdown=False): #topdown=False sert à
             os.rename(dir,
                       os.path.join(root,file_ext[0]))
     
-    #Créer des fichiers portant le même nom que chaque répertoire, sans extension .sbd, au même niveau hiérarchique que le répertoire concerné
+    #If they do not exist, creating files with the same name of each folder, without .sbd extension
     for name in dirs:
         file_ext = os.path.splitext(name)               
         fullPath = os.path.join(root,name)
